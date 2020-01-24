@@ -24,3 +24,4 @@ steps:
   inputs:
     SonarQube: 'SonarQube'
     scannerMode: 'Other'
+- task: SonarQubeAnalyze@4
