@@ -22,8 +22,8 @@ steps:
     goals: 'clean verify'
 - task: SonarQubePrepare@4
   inputs:
-    SonarQube: 'SonarQube'
-    scannerMode: 'Other'
+    scannerMode: 'CLI'
+    configMode: 'file'
 - task: SonarQubeAnalyze@4
 - task: SonarQubePublish@4
   inputs:
