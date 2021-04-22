@@ -21,12 +21,23 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean verify'
     #goals: 'package'
+# Prepare Analysis Configuration task
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: 'SonarQube'
-    scannerMode: 'CLI'
-    configMode: 'file'
-- task: SonarQubeAnalyze@4
+    scannerMode: 'Other'
+    extraProperties: 'sonar.projectKey=maven-basic'
+
+# Publish Quality Gate Result task
 - task: SonarQubePublish@4
   inputs:
     pollingTimeoutSec: '300'
+#- task: SonarQubePrepare@4
+#  inputs:
+#    SonarQube: 'SonarQube'
+#    scannerMode: 'CLI'
+#    configMode: 'file'
+#- task: SonarQubeAnalyze@4
+#- task: SonarQubePublish@4
+#  inputs:
+#    pollingTimeoutSec: '300'
